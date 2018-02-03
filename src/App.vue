@@ -5,21 +5,21 @@
 <script>
   import tree from './components/tree';
   import treeGroup from './components/tree-group';
-  import { Tree, TreeGroup, TreeLink } from './components/types';
+  import { Tree, TreeGroup, TreeLink, Node } from './components/types';
 
-  let root = new Tree('root', [
-    new Tree('steve', [
-      new Tree('henry'),
+  const root = new Tree(new Node('root'), [
+    new Tree(new Node('steve'), [
+      new Tree(new Node('henry')),
     ]),
-    new Tree('barry', [
-      new Tree('ellen'),
-      new Tree('steven', [
-        new Tree('wallace'),
-        new Tree('hailey', [
-          new Tree('horace', [
-            new Tree('grace'),
-            new Tree('stella', [
-              new Tree('lily'),
+    new Tree(new Node('barry'), [
+      new Tree(new Node('ellen')),
+      new Tree(new Node('steven'), [
+        new Tree(new Node('wallace')),
+        new Tree(new Node('hailey'), [
+          new Tree(new Node('horace'), [
+            new Tree(new Node('grace')),
+            new Tree(new Node('stella'), [
+              new Tree(new Node('lily')),
             ])
           ]),
         ]),
@@ -27,14 +27,14 @@
     ]),
   ]);
 
-  let linked1 = new Tree('linked', [
-    new Tree('ben'),
-    new Tree('han'),
+  const linked1 = new Tree(new Node('linked'), [
+    new Tree(new Node('ben')),
+    new Tree(new Node('han')),
   ]);
 
-  let linked2 = new Tree('linked2', [
-    new Tree('fred'),
-    new Tree('celina'),
+  const linked2 = new Tree(new Node('linked2'), [
+    new Tree(new Node('fred')),
+    new Tree(new Node('celina')),
   ]);
 
   const data = new TreeGroup(root, [

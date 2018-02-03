@@ -1,12 +1,12 @@
 <template>
   <div class="node">
-    {{ name }}
+    {{ node.name }}
   </div>
 </template>
 
 <script>
   export default {
-    props: [ 'name' ],
+    props: [ 'node' ],
   }
 </script>
 

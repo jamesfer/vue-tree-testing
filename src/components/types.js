@@ -49,13 +49,13 @@ export class TreeLink extends UniqueId {
 
 export class Tree extends UniqueId {
   /**
-   * @param {string} name
+   * @param {Node} node
    * @param {Tree[]} children
    * @param {Tree} partner
    */
-  constructor(name, children = [], partner = null) {
+  constructor(node, children = [], partner = null) {
     super('tree-');
-    this.name = name;
+    this.node = node;
     this.children = children;
     this.partner = partner;
   }
@@ -67,5 +67,21 @@ export class Tree extends UniqueId {
     ]);
     console.log('height of', this.name, max2);
     return max2;
+  }
+}
+
+
+export class Node {
+  /**
+   * @param {string} id
+   * @param {string} name
+   */
+  constructor(id, name = '') {
+    this.id = id;
+    this.name = name;
+
+    if (!this.name) {
+      this.name = this.id;
+    }
   }
 }

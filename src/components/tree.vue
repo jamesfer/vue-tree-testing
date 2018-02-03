@@ -1,6 +1,6 @@
 <template>
   <div class="tree" :id="tree.id">
-    <node :name="tree.name"></node>
+    <node :node="tree.node"></node>
 
     <div class="children">
       <tree v-for="child in tree.children" :key="child.id" :tree="child"></tree>
