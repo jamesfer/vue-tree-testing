@@ -26,15 +26,17 @@ module.exports = {
         include: SRC,
         loader: 'vue-loader',
         options: {
-          extractCSS: PROD
+          extractCSS: true,
+          sourceMap: true,
         }
       },
       {
         test: /\.js$/,
         include: SRC,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          sourceMap: true,
         }
       },
       {
