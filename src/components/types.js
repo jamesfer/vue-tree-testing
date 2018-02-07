@@ -50,6 +50,12 @@ export class TreeGroup extends UniqueId {
     link.to.parentLinks.push(link);
   }
 
+  createLayer() {
+    const newLayer = new TreeLinkLayer(this);
+    this.layers.push(newLayer);
+    return newLayer;
+  }
+
   hasParent() {
     return this.parentLinks.length > 0;
   }

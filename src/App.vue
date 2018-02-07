@@ -69,13 +69,16 @@
     { name: 'child2' },
     { name: 'otherParent' },
     { name: 'child1 partner' },
+    { name: 'another child' },
   ];
 
   const defaultLinks = [
-    { kind: 'parent', from: 'child1', to: 'parent' },
     { kind: 'parent', from: 'child2', to: 'parent' },
+    { kind: 'parent', from: 'child1', to: 'parent' },
     { kind: 'parent', from: 'parent', to: 'grandparent' },
     { kind: 'parent', from: 'child1 partner', to: 'otherParent' },
+    { kind: 'partner', from: 'child1 partner', to: 'child1', children: [ 'another child' ] },
+    { kind: 'parent', from: 'another child', to: 'child1 partner' },
   ];
 
   export default {

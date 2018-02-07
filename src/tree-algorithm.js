@@ -204,7 +204,7 @@ function createGroupLayers(groups) {
 
       if (!linkDidFit) {
         // Add the link to a new layer
-        const newLayer = new TreeLinkLayer(group);
+        const newLayer = group.createLayer();
         addLinkToLayer(newLayer, link);
       }
     });
@@ -233,6 +233,9 @@ export function createFamilyTree(nodes, links) {
   if (rootGroups.length === 0) {
     throw new Error('Cyclical graphs cannot be processed');
   }
+
+  createGroupLayers(rootGroups);
+
   return rootGroups;
 }
 
