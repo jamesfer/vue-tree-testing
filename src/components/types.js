@@ -1,8 +1,19 @@
-import { max, map } from 'lodash';
+import { max, map, each } from 'lodash';
 
 export class UniqueId {
   constructor(prefix = '') {
     this.id = prefix + Math.random().toString(36).substring(2, 10);
+  }
+}
+
+
+export class TreeLinkLayer extends UniqueId {
+  constructor(group, rightLinks = [], leftLinks = []) {
+    super('tree-link-layer-');
+
+    this.group = group;
+    this.rightLinks = rightLinks;
+    this.leftLinks = leftLinks;
   }
 }
 
@@ -15,9 +26,32 @@ export class TreeGroup extends UniqueId {
    */
   constructor(root, rightLinks = [], leftLinks = []) {
     super('tree-group-');
+
+    if (root.parent) {
+      // Root tree must not have a parent
+      throw Error('The root tree in a group must not have a parent');
+    }
+
+    if (root.group) {
+      throw Error('The root tree already belongs to a group');
+    }
+    root.group = this;
+
     this.root = root;
+    this.childLinks = [];
+    this.parentLinks = [];
+    this.layers = [];
     this.rightLinks = rightLinks;
-    this.leftLinks = leftLinks
+    this.leftLinks = leftLinks;
+  }
+
+  addLink(link) {
+    this.childLinks.push(link);
+    link.to.parentLinks.push(link);
+  }
+
+  hasParent() {
+    return this.parentLinks.length > 0;
   }
 
   getHeight() {
@@ -56,17 +90,48 @@ export class Tree extends UniqueId {
   constructor(node, children = [], partner = null) {
     super('tree-');
     this.node = node;
-    this.children = children;
     this.partner = partner;
+    this.parent = null;
+    this.group = null;
+    this.children = [];
+    each(children, child => this.addChild(child));
   }
 
+  /**
+   * Returns the maximum height of this tree and its partner.
+   * @returns {*}
+   */
   getHeight() {
-    let max2 = max([
+    return max([
       2 + max(map(this.children, child => child.getHeight())),
       this.partner ? this.partner.getHeight() : 0,
     ]);
-    console.log('height of', this.name, max2);
-    return max2;
+  }
+
+  /**
+   * Returns the distance from this node to its root.
+   * @returns {number}
+   */
+  getDepth() {
+    return this.parent ? 1 + this.parent.getDepth() : 0;
+  }
+
+  addChild(child) {
+    this.children.push(child);
+    child.parent = this;
+  }
+
+  hasAncestor(otherTree) {
+    return this.parent === otherTree
+      || this.parent && this.parent.hasAncestor(otherTree);
+  }
+
+  getRoot() {
+    return this.parent ? this.parent.getRoot() : this;
+  }
+
+  getGroup() {
+    return this.getRoot().group;
   }
 }
 
