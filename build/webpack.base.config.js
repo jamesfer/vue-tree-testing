@@ -19,6 +19,7 @@ module.exports = {
     path: DIST,
     publicPath: '/'
   },
+  stats: 'minimal',
   module: {
     rules: [
       {
