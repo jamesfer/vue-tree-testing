@@ -4,21 +4,6 @@ import {
   TreeLinkLayer,
 } from './components/types';
 
-const nodes = [
-  { name: 'grandparent' },
-  { name: 'parent' },
-  { name: 'child1' },
-  { name: 'child2' },
-  { name: 'otherParent' },
-  { name: 'child1 partner' },
-];
-
-const links = [
-  { kind: 'parent', from: 'a', to: 'b' },
-  { kind: 'parent', from: 'b', to: 'c' },
-  { kind: 'parent', from: 'c', to: 'd' },
-];
-
 
 /**
  * Creates a map of trees from single nodes. Each tree will have no children
