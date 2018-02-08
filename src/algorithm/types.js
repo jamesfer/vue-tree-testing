@@ -8,10 +8,10 @@ export class UniqueId {
 
 
 export class TreeLinkLayer extends UniqueId {
-  constructor(group, rightLinks = [], leftLinks = []) {
+  constructor(rightLinks = [], leftLinks = []) {
     super('tree-link-layer-');
 
-    this.group = group;
+    this.group = null;
     this.rightLinks = rightLinks;
     this.leftLinks = leftLinks;
   }
@@ -21,10 +21,9 @@ export class TreeLinkLayer extends UniqueId {
 export class TreeGroup extends UniqueId {
   /**
    * @param {Tree} root
-   * @param {TreeLink[]} rightLinks
-   * @param {TreeLink[]} leftLinks
+   * @param {TreeLinkLayer[]} layers
    */
-  constructor(root, rightLinks = [], leftLinks = []) {
+  constructor(root, layers = []) {
     super('tree-group-');
 
     if (root.parent) {
@@ -41,8 +40,7 @@ export class TreeGroup extends UniqueId {
     this.childLinks = [];
     this.parentLinks = [];
     this.layers = [];
-    this.rightLinks = rightLinks;
-    this.leftLinks = leftLinks;
+    each(layers, layer => this.addLayer(layer));
   }
 
   addLink(link) {
@@ -51,9 +49,14 @@ export class TreeGroup extends UniqueId {
   }
 
   createLayer() {
-    const newLayer = new TreeLinkLayer(this);
-    this.layers.push(newLayer);
+    const newLayer = new TreeLinkLayer();
+    this.addLayer(newLayer);
     return newLayer;
+  }
+
+  addLayer(layer) {
+    this.layers.push(layer);
+    layer.group = this;
   }
 
   hasParent() {

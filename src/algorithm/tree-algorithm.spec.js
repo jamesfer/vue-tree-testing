@@ -1,13 +1,5 @@
-import { map } from 'lodash';
 import { createFamilyTree, createTreeStructure } from './tree-algorithm';
-
-function makeNodes(...names) {
-  return map(names, name => ({ name }));
-}
-
-function makeRels(kind, ...rels) {
-  return map(rels, rel => ({ kind, from: rel[0], to: rel[1] }));
-}
+import { makeNodes, makeRels } from './test-utils';
 
 describe('createTreeStructure()', () => {
   it('should create child-parent relationships', () => {
