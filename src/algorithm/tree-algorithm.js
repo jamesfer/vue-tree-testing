@@ -192,6 +192,9 @@ function addLinkToLayer(layer, link) {
  */
 function createGroupLayers(groups) {
   each(groups, group => {
+    // Create layers for all child groups
+    // createGroupLayers(map(group.childLinks, 'to'));
+
     // Sort the links from smallest to largest
     const sortedLinks = sortBy(group.childLinks, link => link.getHeight());
 
