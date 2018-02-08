@@ -2,7 +2,7 @@ import { reduce, each, some, every, pickBy, values, reject, map, sortBy } from '
 import {
   Tree, Node, TreeGroup, TreeLink,
   TreeLinkLayer,
-} from './components/types';
+} from './types';
 
 
 /**

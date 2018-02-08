@@ -7,7 +7,7 @@
 <script>
   import treeGroup from './tree-group';
   import { debounce, wrap } from 'lodash';
-  import { createFamilyTree } from '../tree-algorithm';
+  import { createFamilyTree } from '../algorithm/tree-algorithm';
 
   export default {
     props: [ 'nodes', 'links' ],

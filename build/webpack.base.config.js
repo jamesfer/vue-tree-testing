@@ -13,7 +13,7 @@ const DIST = path.resolve(__dirname, '../dist');
 const PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(SRC, 'main.js')],
+  entry: ['babel-polyfill', path.resolve(SRC, 'demo', 'main.js')],
   output: {
     filename: 'bundle.js',
     path: DIST,
@@ -95,7 +95,7 @@ module.exports = {
     // Create HTML files to serve webpack bundle.
     new HtmlWebpackPlugin({
       filename: path.resolve(DIST, 'index.html'),
-      template: `!!handlebars-loader!${SRC}/index.hbs`, // Path to template.
+      template: `!!handlebars-loader!${SRC}/demo/index.hbs`, // Path to template.
       hash: true, // Append a unique compilation hash to all included scripts and CSS files.
       title: config.title,
       description: config.description
