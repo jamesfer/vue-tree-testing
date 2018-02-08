@@ -124,4 +124,8 @@
     display: inline-block;
     width: 170px;
   }
+
+  .columns.wrap {
+    flex-wrap: wrap;
+  }
 </style>

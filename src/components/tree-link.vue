@@ -1,6 +1,8 @@
 <template>
   <div class="tree-link" :id="link.id">
-    <div class="tree-spacer" v-for="i in space"></div>
+    <div class="spacing">
+      <div class="node" v-for="i in space">Empty</div>
+    </div>
 
     <tree-group :group="link.to"></tree-group>
   </div>
@@ -17,8 +19,8 @@
 </script>
 
 <style>
-  .tree-spacer {
-    height: 30px;
-    padding: 5px;
+  .spacing .node {
+    visibility: hidden;
+    margin-top: 10px;
   }
 </style>
