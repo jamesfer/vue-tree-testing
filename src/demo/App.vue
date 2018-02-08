@@ -13,7 +13,7 @@
 
 <script>
   import treeView from '../components/tree-view';
-  import editTree from '../components/edit-tree';
+  import editTree from './edit-tree';
   import { Tree, TreeGroup, TreeLink, Node } from '../algorithm/types';
 
   const defaultNodes = [
