@@ -95,7 +95,7 @@ module.exports = {
     // Create HTML files to serve webpack bundle.
     new HtmlWebpackPlugin({
       filename: path.resolve(DIST, 'index.html'),
-      template: `!!handlebars-loader!${SRC}/demo/index.hbs`, // Path to template.
+      template: `${SRC}/demo/index.html`, // Path to template.
       hash: true, // Append a unique compilation hash to all included scripts and CSS files.
       title: config.title,
       description: config.description
