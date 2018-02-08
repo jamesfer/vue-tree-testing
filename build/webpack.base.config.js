@@ -1,4 +1,3 @@
-const config = require('../app.config');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -97,8 +96,6 @@ module.exports = {
       filename: path.resolve(DIST, 'index.html'),
       template: `${SRC}/demo/index.html`, // Path to template.
       hash: true, // Append a unique compilation hash to all included scripts and CSS files.
-      title: config.title,
-      description: config.description
     }),
     // Generate favicons and icons for iOS, Android and desktop browsers.
     new FaviconsWebpackPlugin({
