@@ -29,6 +29,9 @@
         this.groups = createFamilyTree(this.nodes, this.links);
       }, 10);
     },
+    created() {
+      this.updateGroups();
+    }
   }
 </script>
 

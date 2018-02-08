@@ -64,6 +64,17 @@ module.exports = {
         use: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
       },
       {
+        test: /\.(scss|sass)$/,
+        exclude: SRC,
+        use: PROD
+          ? ExtractTextPlugin.extract([
+            'vue-style-loader',
+            'css-loader',
+            'sass-loader'
+          ])
+          : ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax'],
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
