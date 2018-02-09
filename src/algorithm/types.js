@@ -111,10 +111,9 @@ export class Tree extends UniqueId {
    * @returns {*}
    */
   getHeight() {
-    return max([
-      2 + max(map(this.children, child => child.getHeight())),
-      this.partner ? this.partner.getHeight() : 0,
-    ]);
+    let childHeight = max(map(this.children, child => 1 + child.getHeight()));
+    let partnerHeight = this.partner ? this.partner.getHeight() : 0;
+    return max([ 1, childHeight, partnerHeight ]);
   }
 
   /**
