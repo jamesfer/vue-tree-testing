@@ -18,6 +18,7 @@
 
   const defaultNodes = [
     { name: 'grandparent' },
+    { name: 'grandpartner' },
     { name: 'parent' },
     { name: 'child1' },
     { name: 'child2' },
@@ -33,6 +34,7 @@
     { kind: 'parent', from: 'child1 partner', to: 'otherParent' },
     { kind: 'partner', from: 'child1 partner', to: 'child1', children: [ 'another child' ] },
     { kind: 'parent', from: 'another child', to: 'child1 partner' },
+    { kind: 'partner', from: 'grandparent', to: 'grandpartner' },
   ];
 
   export default {
