@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <div class="container">
-      <div class="content">
+      <div class="content demo-tree">
         <tree-view :nodes="nodes" :links="links"></tree-view>
       </div>
       <div class="content">
@@ -56,3 +56,11 @@
     },
   };
 </script>
+
+<style>
+  .demo-tree {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 20px;
+  }
+</style>

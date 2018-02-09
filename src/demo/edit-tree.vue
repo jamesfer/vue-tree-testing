@@ -35,7 +35,7 @@
 
       <hr>
 
-      <div class="columns">
+      <div class="columns wrap">
         <div class="column field has-addons">
           <div class="control">
             <label for="link-type" class="button is-static">Link kind</label>
