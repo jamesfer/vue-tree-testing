@@ -19,12 +19,3 @@
     }
   }
 </script>
-
-<style>
-  .tree {
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-    padding: 10px 10px 0;
-  }
-</style>

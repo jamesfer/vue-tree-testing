@@ -33,13 +33,3 @@
   }
 </script>
 
-<style>
-  .tree-group {
-    white-space: nowrap;
-    overflow: scroll;
-  }
-
-  .left-links, .right-links {
-    display: inline-block;
-  }
-</style>

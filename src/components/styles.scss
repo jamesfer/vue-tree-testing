@@ -1,0 +1,50 @@
+.tree-group, .node, .tree, .left-links, .right-links {
+  display: inline-block;
+}
+
+.node {
+  min-width: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 2px;
+  padding: 12px;
+}
+
+.tree {
+  text-align: center;
+  vertical-align: top;
+  // This padding appears in between each layer of the tree
+  padding-top: 10px;
+}
+
+// Invisible nodes
+.spacing {
+  visibility: hidden;
+
+  .tree {
+    display: block;
+  }
+}
+
+.children > .tree:not(:first-child) {
+  padding-left: 20px;
+}
+
+.tree-group {
+  vertical-align: top;
+}
+
+.right-links .link-layer {
+  padding-left: 30px;
+}
+.left-links .link-layer {
+  padding-right: 30px;
+}
+
+.tree-view {
+  overflow: scroll;
+  white-space: nowrap;
+
+  > .tree-group:not(:first-child) {
+    padding-left: 100px;
+  }
+}

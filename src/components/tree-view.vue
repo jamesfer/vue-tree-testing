@@ -8,6 +8,7 @@
   import treeGroup from './tree-group';
   import { debounce, wrap } from 'lodash';
   import { createFamilyTree } from '../algorithm/tree-algorithm';
+  import './styles.scss';
 
   export default {
     props: [ 'nodes', 'links' ],
@@ -27,6 +28,7 @@
       this.$options.methods = this.$options.methods || {};
       this.$options.methods.updateGroups = debounce(() => {
         this.groups = createFamilyTree(this.nodes, this.links);
+        console.log(this.groups);
       }, 10);
     },
     created() {
@@ -34,10 +36,3 @@
     }
   }
 </script>
-
-<style>
-  .tree-view .tree-group {
-    display: inline-block;
-    vertical-align: top;
-  }
-</style>

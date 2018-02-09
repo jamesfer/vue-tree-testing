@@ -1,7 +1,9 @@
 <template>
   <div class="tree-link" :id="link.id">
     <div class="spacing">
-      <div class="node" v-for="i in space">Empty</div>
+      <div class="tree" v-for="i in space">
+        <div class="node">-</div>
+      </div>
     </div>
 
     <tree-group :group="link.to"></tree-group>
@@ -17,10 +19,3 @@
     },
   }
 </script>
-
-<style>
-  .spacing .node {
-    visibility: hidden;
-    margin-top: 10px;
-  }
-</style>
