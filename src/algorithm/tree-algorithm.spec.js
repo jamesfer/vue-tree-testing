@@ -26,6 +26,13 @@ describe('createTreeStructure()', () => {
 
     expect(() => createTreeStructure(nodes, rels)).toThrow();
   });
+
+  it('should maintain node id', () => {
+    const trees = createTreeStructure([{ id: 'id', name: 'name' }], []);
+    expect(trees.length).toBe(1);
+    expect(trees[0].node.id).toBe('id');
+    expect(trees[0].node.name).toBe('name');
+  });
 });
 
 describe('createFamilyTree()', () => {

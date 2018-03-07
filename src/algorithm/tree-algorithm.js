@@ -13,7 +13,7 @@ import {
  */
 function createTrees(nodes) {
   return reduce(nodes, (nodeMap, node) => {
-    node = new Node(node.id || node.name, node.name);
+    node = new Node(node.name, node.id);
     nodeMap[node.id] = new Tree(node);
     return nodeMap;
   }, {});
