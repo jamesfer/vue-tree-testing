@@ -1,8 +1,11 @@
 import { max, map, each } from 'lodash';
 
 export class UniqueId {
-  constructor(prefix = '') {
-    this.id = prefix + Math.random().toString(36).substring(2, 10);
+  constructor(prefix = '', id = null) {
+    if (id === null) {
+      id = Math.random().toString(36).substring(2, 10);
+    }
+    this.id = prefix + id;
   }
 }
 
@@ -97,7 +100,7 @@ export class Tree extends UniqueId {
    * @param {Tree} partner
    */
   constructor(node, children = [], partner = null) {
-    super('tree-');
+    super('tree-', node.id);
     this.node = node;
     this.partner = partner;
     this.parent = null;
@@ -144,17 +147,15 @@ export class Tree extends UniqueId {
 }
 
 
-export class Node {
+export class Node extends UniqueId {
   /**
-   * @param {string} id
    * @param {string} name
+   * @param {string} id
    */
-  constructor(id, name = '') {
+  constructor(name, id = name) {
+    super('node-', id);
+
     this.id = id;
     this.name = name;
-
-    if (!this.name) {
-      this.name = this.id;
-    }
   }
 }
