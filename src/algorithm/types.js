@@ -1,18 +1,18 @@
 import { max, map, each } from 'lodash';
 
 export class UniqueId {
-  constructor(prefix = '', id = null) {
+  constructor(id = null) {
     if (id === null) {
       id = Math.random().toString(36).substring(2, 10);
     }
-    this.id = prefix + id;
+    this.id = id;
   }
 }
 
 
 export class TreeLinkLayer extends UniqueId {
   constructor(rightLinks = [], leftLinks = []) {
-    super('tree-link-layer-');
+    super();
 
     this.group = null;
     this.rightLinks = rightLinks;
@@ -27,7 +27,7 @@ export class TreeGroup extends UniqueId {
    * @param {TreeLinkLayer[]} layers
    */
   constructor(root, layers = []) {
-    super('tree-group-');
+    super();
 
     if (root.parent) {
       // Root tree must not have a parent
@@ -82,7 +82,7 @@ export class TreeLink extends UniqueId {
    * @param {number} verticalOffset
    */
   constructor(to, verticalOffset) {
-    super('tree-link-');
+    super();
     this.to = to;
     this.verticalOffset = verticalOffset;
   }
@@ -100,7 +100,7 @@ export class Tree extends UniqueId {
    * @param {Tree} partner
    */
   constructor(node, children = [], partner = null) {
-    super('tree-', node.id);
+    super(node.id);
     this.node = node;
     this.partner = partner;
     this.parent = null;
@@ -153,9 +153,7 @@ export class Node extends UniqueId {
    * @param {string} id
    */
   constructor(name, id = name) {
-    super('node-', id);
-
-    this.id = id;
+    super(id);
     this.name = name;
   }
 }

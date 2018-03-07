@@ -1,5 +1,5 @@
 <template>
-  <div class="node" :id="node.id">
+  <div class="node" :id="`node-${node.id}`">
     {{ node.name }}
   </div>
 </template>

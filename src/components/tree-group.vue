@@ -1,5 +1,5 @@
 <template>
-  <div class="tree-group" :id="group.id">
+  <div class="tree-group" :id="`tree-group-${group.id}`">
     <div class="left-links">
       <div class="link-layer" v-for="layer in reverse(group.layers)">
         <tree-link v-for="link in getLayerSections(layer.leftLinks)" :key="section.link.id" :space="section.spaceSize" :link="section.link"></tree-link>
