@@ -112,10 +112,10 @@ function processPartnerRels(nodeMap, rels) {
       const fromHeight = fromTree.getDepth();
       const toHeight = toTree.getDepth();
       if (fromHeight > toHeight) {
-        fromGroup.addLink(new TreeLink(toGroup, fromHeight - toHeight));
+        fromGroup.addLink(new TreeLink(rel.from, toGroup, fromHeight - toHeight));
       }
       else if (fromHeight < toHeight) {
-        toGroup.addLink(new TreeLink(fromGroup, toHeight - fromHeight));
+        toGroup.addLink(new TreeLink(rel.to, fromGroup, toHeight - fromHeight));
       }
       else {
         // The two nodes are the same distance from their roots, so attempt

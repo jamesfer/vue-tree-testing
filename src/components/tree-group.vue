@@ -10,7 +10,10 @@
 
     <div class="right-links">
       <div class="link-layer" v-for="layer in group.layers">
-        <tree-link v-for="section in getLayerSections(layer.rightLinks)" :key="section.link.id" :space="section.spaceSize" :link="section.link"></tree-link>
+        <div v-for="section in getLayerSections(layer.rightLinks)" :key="section.link.id">
+          <tree-link :space="section.spaceSize" :link="section.link"></tree-link>
+          <connection kind="partner" :from="section.link.fromId" :to="section.link.to.root.node.id"></connection>
+        </div>
       </div>
     </div>
   </div>
@@ -19,6 +22,7 @@
 <script>
   import tree from './tree';
   import treeLink from './tree-link';
+  import connection from './connection';
   import { sortBy, map, reverse } from 'lodash';
 
   export default {
@@ -26,6 +30,7 @@
     components: {
       tree,
       treeLink,
+      connection,
     },
     methods: {
       reverse,

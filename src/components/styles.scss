@@ -1,3 +1,7 @@
+.tree-view {
+  position: relative;
+}
+
 .tree-group, .node, .tree, .left-links, .right-links {
   display: inline-block;
 }
@@ -46,5 +50,22 @@
 
   > .tree-group:not(:first-child) {
     padding-left: 100px;
+  }
+}
+
+.connection {
+  position: absolute;
+  fill: black;
+  stroke: black;
+
+  .forwards, .backwards, .fill {
+    visibility: hidden;
+  }
+
+  &.forwards .forwards,
+  &.backwards .backwards,
+  &.vertical .fill,
+  &.horizontal .fill {
+    visibility: visible;
   }
 }

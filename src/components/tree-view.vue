@@ -28,7 +28,6 @@
       this.$options.methods = this.$options.methods || {};
       this.$options.methods.updateGroups = debounce(() => {
         this.groups = createFamilyTree(this.nodes, this.links);
-        console.log(this.groups);
       }, 10);
     },
     created() {

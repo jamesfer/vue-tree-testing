@@ -81,8 +81,9 @@ export class TreeLink extends UniqueId {
    * @param {TreeGroup} to
    * @param {number} verticalOffset
    */
-  constructor(to, verticalOffset) {
+  constructor(fromId, to, verticalOffset) {
     super();
+    this.fromId = fromId;
     this.to = to;
     this.verticalOffset = verticalOffset;
   }
